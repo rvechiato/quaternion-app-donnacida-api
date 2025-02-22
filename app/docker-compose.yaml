@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  localstack:
+    image: localstack/localstack:latest
+    container_name: localstack
+    ports:
+      - "4566:4566"          # Porta principal da API do LocalStack
+      - "4510-4559:4510-4559"
+    environment:
+      - SERVICES=dynamodb   # Habilita o serviço DynamoDB
+      - DEBUG=1
+      - LS_LOG=trace
+    volumes:
+      - ./init-scripts:/docker-entrypoint-initaws.d

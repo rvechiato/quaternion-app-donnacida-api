@@ -1,0 +1,11 @@
+[
+  {
+    "IndexName": "SchedulerIndex",
+    "KeySchema": [
+      { "AttributeName": "caregiver_id", "KeyType": "HASH" },
+      { "AttributeName": "start_at", "KeyType": "RANGE" }
+    ],
+    "Projection": { "ProjectionType": "ALL" },
+    "ProvisionedThroughput": { "ReadCapacityUnits": 5, "WriteCapacityUnits": 5 }
+  }
+]
